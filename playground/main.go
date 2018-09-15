@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/liguoqinjim/ruokuai"
 	"io/ioutil"
 	"log"
 )
@@ -24,4 +25,7 @@ func main() {
 	}
 
 	log.Println("user=", u)
+
+	app := ruokuai.Defualt(u.Username, u.Password)
+	app.Info()
 }
