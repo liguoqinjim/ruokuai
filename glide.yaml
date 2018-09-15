@@ -1,0 +1,4 @@
+package: github.com/liguoqinjim/ruokuai
+import:
+- package: github.com/parnurzeal/gorequest
+  version: v0.2.15
