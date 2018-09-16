@@ -55,6 +55,20 @@ func (app *RuoKuaiApp) Info() {
 	log.Println(resp.StatusCode)
 }
 
-func (app *RuoKuaiApp) Query(typeId string, timeout int, ) {
+func (app *RuoKuaiApp) Create(typeId, imagePath string) {
+	request := gorequest.New()
 
+	resp, body, errs := request.Post("http://api.ruokuai.com/create.json").
+		Type("multipart").
+		SendMap(map[string]interface{}{"username": app.Username, "password": app.Password, "typeid": typeId, "timeout": app.Timeout, "softid": app.SoftId, "softkey": app.SoftKey}).
+		SendFile("../testData/1.png", "2.png", "image", ).
+		End()
+	if errs != nil {
+		log.Fatalf("errors:%v", errs)
+	}
+
+	log.Println(body)
+	log.Println(resp.StatusCode)
 }
+
+func (app *RuoKuaiApp) Create

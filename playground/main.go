@@ -28,4 +28,6 @@ func main() {
 
 	app := ruokuai.Defualt(u.Username, u.Password)
 	app.Info()
+
+	app.Create("3040","")
 }
