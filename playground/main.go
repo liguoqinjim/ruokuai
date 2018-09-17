@@ -29,5 +29,6 @@ func main() {
 	app := ruokuai.Defualt(u.Username, u.Password)
 	app.Info()
 
-	app.Create("3040","")
+	//app.Create("3040","")
+	app.CreateUrl("3040","https://center.abuyun.com/captcha")
 }

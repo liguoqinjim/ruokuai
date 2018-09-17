@@ -22,13 +22,13 @@ func New(username, password string) *RuoKuaiApp {
 
 func Defualt(username, password string) *RuoKuaiApp {
 	app := New(username, password).
-		SetSoftId("112477", "84d9d802e6454936bb0119869d166220").
+		SetSoftIdKey("112477", "84d9d802e6454936bb0119869d166220").
 		SetTimeout(60)
 	return app
 }
 
 //设置softId和softKey
-func (app *RuoKuaiApp) SetSoftId(id, key string) *RuoKuaiApp {
+func (app *RuoKuaiApp) SetSoftIdKey(id, key string) *RuoKuaiApp {
 	app.SoftId, app.SoftKey = id, key
 	return app
 }
@@ -71,4 +71,32 @@ func (app *RuoKuaiApp) Create(typeId, imagePath string) {
 	log.Println(resp.StatusCode)
 }
 
-func (app *RuoKuaiApp) Create
+func (app *RuoKuaiApp) CreateUrl(typeId, imageUrl string) {
+	request := gorequest.New()
+
+	resp, body, errs := request.Post("http://api.ruokuai.com/create.json").
+		Type("multipart").
+		SendMap(map[string]interface{}{"username": app.Username, "password": app.Password, "typeid": typeId, "timeout": app.Timeout, "softid": app.SoftId, "softkey": app.SoftKey, "imageurl": imageUrl}).
+		End()
+	if errs != nil {
+		log.Fatalf("errors:%v", errs)
+	}
+
+	log.Println(body)
+	log.Println(resp.StatusCode)
+}
+
+func (app *RuoKuaiApp) ReportError(id string) {
+	request := gorequest.New()
+
+	resp, body, errs := request.Post("http://api.ruokuai.com/create.json").
+		Type("multipart").
+		SendMap(map[string]interface{}{"username": app.Username, "password": app.Password, "softid": app.SoftId, "softkey": app.SoftKey, "id": id}).
+		End()
+	if errs != nil {
+		log.Fatalf("errors:%v", errs)
+	}
+
+	log.Println(body)
+	log.Println(resp.StatusCode)
+}
