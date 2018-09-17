@@ -26,9 +26,25 @@ func main() {
 
 	log.Println("user=", u)
 
-	app := ruokuai.Defualt(u.Username, u.Password)
-	app.Info()
+	app := ruokuai.Default(u.Username, u.Password)
 
-	//app.Create("3040","")
-	app.CreateUrl("3040","https://center.abuyun.com/captcha")
+	//登录
+	//ir, er := app.Info()
+	//if ir != nil {
+	//	log.Println("ir=", ir)
+	//} else {
+	//	log.Println("er=", er)
+	//}
+
+	//验证码
+	//ir, er := app.Create("3040", "../testData/3.png")
+	//if ir != nil {
+	//	log.Println("ir=", ir)
+	//} else {
+	//	log.Println("er=", er)
+	//}
+
+	//验证码url
+
+	//app.CreateUrl("3040","https://center.abuyun.com/captcha")
 }
