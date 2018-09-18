@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/liguoqinjim/ruokuai"
 	"io/ioutil"
 	"log"
 )
@@ -26,7 +25,7 @@ func main() {
 
 	log.Println("user=", u)
 
-	app := ruokuai.Default(u.Username, u.Password)
+	//app := ruokuai.Default(u.Username, u.Password)
 
 	//登录
 	//ir, er := app.Info()
