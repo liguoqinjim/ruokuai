@@ -72,6 +72,7 @@ func (app *RuoKuaiApp) Info() (*InfoResult, *ErrorResult) {
 	}
 }
 
+//解析验证码
 func (app *RuoKuaiApp) Create(typeId, imagePath string) (*CreateResult, *ErrorResult) {
 	request := gorequest.New()
 
@@ -106,6 +107,7 @@ func (app *RuoKuaiApp) Create(typeId, imagePath string) (*CreateResult, *ErrorRe
 	}
 }
 
+//解析验证码
 func (app *RuoKuaiApp) CreateUrl(typeId, imageUrl string) (*CreateResult, *ErrorResult) {
 	request := gorequest.New()
 
@@ -136,6 +138,7 @@ func (app *RuoKuaiApp) CreateUrl(typeId, imageUrl string) (*CreateResult, *Error
 	}
 }
 
+//报告验证码结果错误
 func (app *RuoKuaiApp) ReportError(id string) (*ReportErrorResult, *ErrorResult) {
 	request := gorequest.New()
 
